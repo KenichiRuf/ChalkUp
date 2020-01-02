@@ -23,7 +23,7 @@ const Register = () => {
   return (
     <div>
       <Form onSubmit={register}>
-        <FormText>Create Your Account</FormText>
+        <FormText className="title">Create Your Account</FormText>
         <FormGroup>
           <Label for="username">Username</Label>
           <Input
