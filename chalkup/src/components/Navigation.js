@@ -16,6 +16,9 @@ const Navigation = () => {
   `;
   const Logo = styled.h1`
     /* font-size: ${theme.unit(1)}; */
+    color: ${theme.colors.black};
+    padding: 0px;
+    margin: 0px;
   `;
 
   const Options = styled.div`
@@ -31,10 +34,10 @@ const Navigation = () => {
         <Logo className="logo">ChalkUp</Logo>
       </Link>
       <Options>
-        <Link to="/add-route" style={{ margin: theme.unit(1) }}>
+        <Link to="/add-route" style={{ margin: `0 ${theme.unit(1)} 0 ${theme.unit(1)}` }}>
           <Button>+ Add Route</Button>
         </Link>
-        <a className="logout" style={{ margin: theme.unit(1) }}>
+        <a className="logout" style={{ display: 'block', margin: `0 ${theme.unit(1)} 0 ${theme.unit(1)}` }}>
           Logout
         </a>
       </Options>
