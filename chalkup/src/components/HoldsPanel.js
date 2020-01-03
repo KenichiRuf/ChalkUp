@@ -16,14 +16,14 @@ const HoldsContainer = styled.div`
     right: 0;
     top: 0;
     background: ${theme.colors.white};
-    border-left: 2px solid rgba(0,0,0,0.2);
+    border-left: 2px solid ${theme.colors.highlight};
 `
 
 const HoldsTitles = styled.h4`
     display: block;
     padding: ${theme.unit(1)};
     text-align: center;
-    background: rgba(0,0,0,0.25);
+    background: ${theme.colors.highlight};
 `
 
 function getKeyByValue(object, value) {

@@ -5,6 +5,7 @@ import { DndProvider, useDrop } from 'react-dnd'
 
 import Panel from './Panel'
 import theme from "../theme"
+import Dots from '../images/dots.png'
 import { Button, FormGroup, Label, Input } from 'reactstrap';
 
 const Modal = styled.div`
@@ -34,7 +35,7 @@ class RouteSetter extends React.Component {
     }
     render() {
         return ( 
-            <div>
+            <div style={{overflow: 'hidden', height: '100vh', backgroundImage: `url(${Dots})`, backgroundRepeat: 'repeat'}}>
                 {this.state.modalShown?<Modal key='modal-container'>
                     <FormGroup>
                         <Label for="height">Height</Label>

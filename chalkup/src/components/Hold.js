@@ -23,6 +23,7 @@ const Hold = (props) => {
             ref={drag}
             onMouseEnter={changeSrc}
             style={{
+                width: 50,
                 opacity: isDragging ? 0.5 : 1,
                 cursor: 'move',
                 position: 'absolute',
