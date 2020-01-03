@@ -5,7 +5,6 @@ import RouteCard from "./RouteCard";
 const RouteList = props => {
   return (
     <div>
-      <Navigation />
       {props.routeList.map(route => (
         <RouteCard route={route} />
       ))}
