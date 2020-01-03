@@ -7,7 +7,7 @@ import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import FindRoutes from "./components/FindRoutes";
 import RouteSetter from "./components/RouteSetter";
-
+import UserRouteView from "./components/UserRouteView";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/find-routes" component={FindRoutes} />
       <Route exact path="/add-route" component={RouteSetter} />
+      <Route path="/userRoute" component={UserRouteView} />
     </Router>
   );
 }
