@@ -18,9 +18,10 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
+  const hash = bcrypt.hashSync(password, 10);
+
   const login = event => {
     event.preventDefault();
-    const hash = bcrypt.hashSync(password, 10);
     axios
       .post("https://chalkup-backend.herokuapp.com/api/auth/login", {
         username: username,
