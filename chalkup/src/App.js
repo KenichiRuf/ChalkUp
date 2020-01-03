@@ -5,6 +5,7 @@ import HomePage from "./components/HomePage";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import FindRoutes from "./components/FindRoutes";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/find-routes" component={FindRoutes} />
     </Router>
   );
 }
