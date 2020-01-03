@@ -27,9 +27,9 @@ const Navigation = () => {
 
   return (
     <Bar className="Navigation">
-      <a href="/dashboard">
+      <Link to="/dashboard">
         <Logo className="logo">ChalkUp</Logo>
-      </a>
+      </Link>
       <Options>
         <Link to="/add-route" style={{ margin: theme.unit(1) }}>
           <Button>+ Add Route</Button>
