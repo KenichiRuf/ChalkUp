@@ -12,8 +12,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     const user = jwt.decode(localStorage.getItem("token")).user;
+    console.log(user);
     axios
-      .get(`https://chalkup-backend.herokuapp.com/api/routes/${user.userId}`)
+      .get(`https://chalkup-backend.herokuapp.com/api/routes/${user.id}`)
       .then(res => setRouteList(res.data.routes));
   }, []);
 
