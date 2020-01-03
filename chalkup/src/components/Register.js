@@ -29,7 +29,7 @@ const Register = () => {
     axios
       .post("https://chalkup-backend.herokuapp.com/api/auth/login", {
         username: username,
-        password: hash
+        password: password
       })
       .then(res => {
         localStorage.setItem("token", res.data.token);
