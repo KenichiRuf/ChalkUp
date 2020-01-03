@@ -1,53 +1,60 @@
 import React from 'react';
 import styled from "styled-components";
+import Backend from 'react-dnd-html5-backend'
+import { DndProvider, useDrop } from 'react-dnd'
+
+import Panel from './Panel'
 import theme from "../theme"
 import { Button, FormGroup, Label, Input } from 'reactstrap';
 
+const Modal = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 400px;
+`
+
 class RouteSetter extends React.Component {
-    state = {
-        height: 8,
-        width: 7,
-        angle: 0,
-        modalShown: false
+    constructor(props){
+        super(props)
+        this.state = {
+            height: 18,
+            width: 18,
+            angle: 0,
+            modalShown: false
+        }
     }
-    // state = {
-    //     height: null,
-    //     width: null,
-    //     angle: null,
-    //     modalShown: true
-    // }
+    handleChange = e => {
+        console.log(e.target.name)
+        this.setState({ [e.target.name] : e.target.value });
+    }
     render() {
-        const Modal = styled.div`
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            height: 400px;
-        `
         return ( 
             <div>
-                {this.state.modalShown?
-                    <Modal>
-                        <FormGroup>
-                            <Label for="height">Height</Label>
-                            <Input type="height" name="height" id="height" placeholder="height of panel" value={this.state.height} onChange={e => this.setState({ height: e.target.value })}/>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="width">Width</Label>
-                            <Input type="width" name="width" id="width" placeholder="width of panel" value={this.state.width} onChange={e => this.setState({ width: e.target.value })}/>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="angle">Angle</Label>
-                            <Input type="angle" name="angle" id="angle" placeholder="angle of panel" value={this.state.angle} onChange={e => this.setState({ angle: e.target.value })}/>
-                        </FormGroup>
-                        <Button color="primary" onClick={e=>{
-                            this.setState({modalShown: false})
-                        }}>Create Panel</Button>
-                    </Modal>
-                :null}
+                {this.state.modalShown?<Modal key='modal-container'>
+                    <FormGroup>
+                        <Label for="height">Height</Label>
+                        <Input key='modal-height' type="number" name="height" id="height" placeholder="height of panel in centimeters" value={this.state.height} onChange={this.handleChange}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="width">Width</Label>
+                        <Input key='modal-width' type="number" name="width" id="width" placeholder="width of panel in centimeters" value={this.state.width} onChange={this.handleChange}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="angle">Angle</Label>
+                        <Input key='modal-angle' type="angle" name="angle" id="angle" placeholder="angle of panel" value={this.state.angle} onChange={this.handleChange}/>
+                    </FormGroup>
+                    <Button color="primary" onClick={e=>{
+                        this.setState({modalShown: false})
+                    }}>Create Panel</Button>
+                </Modal>:null}
+                <DndProvider backend={Backend}>
+                    <Panel width={this.state.width} height={this.state.height} angle={this.state.angle} />
+                </DndProvider>
             </div>
         );
     }
