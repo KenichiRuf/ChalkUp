@@ -51,7 +51,7 @@ const Panel = ({width, height, angle}) => {
       })
     return (
         <div>
-            <PanelBlock ref={drop}>panel</PanelBlock>
+            <PanelBlock ref={drop}></PanelBlock>
             {holds.map((hold,i)=>{
                 return <Hold key={'Math.random() + hold.x + hold.y'} src={hold.src} id={i+1} x={hold.x} y={hold.y} />
             })}
