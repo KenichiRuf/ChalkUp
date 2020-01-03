@@ -64,6 +64,10 @@ a {
   padding: 10px;
 }
 
+.userRouteView {
+  margin: 20px;
+}
+
 .routeDetails {
   display: flex;
   flex-direction: row;
