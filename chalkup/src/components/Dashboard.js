@@ -5,7 +5,12 @@ import axios from "axios";
 
 const Dashboard = () => {
   const [routeList, setRouteList] = useState([]);
-  useEffect(async () => await axios.get().then(res => console.log(res)));
+  useEffect(
+    async () =>
+      await axios
+        .get("https://chalkup-backend.herokuapp.com/api/routes/")
+        .then(res => console.log(res))
+  );
 
   return (
     <div>
