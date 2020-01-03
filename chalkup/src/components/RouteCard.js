@@ -44,7 +44,11 @@ const RouteCard = props => {
         }}
         className="routeImage"
       ></div>
-      <Button onClick={handleClick}>Send This Route!</Button>
+      {props.route.status === "Sent" ? (
+        <p>You Already Sent This Route</p>
+      ) : (
+        <Button onClick={handleClick}>Send This Route!</Button>
+      )}
       {error ? <p className="errorMessage">{error}</p> : null}
     </div>
   );
