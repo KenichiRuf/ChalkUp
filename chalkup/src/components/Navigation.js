@@ -1,22 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
+import styled from "styled-components";
+import theme from "../theme"
 
 const Navigation = () => {
-  function logout() {
-    localStorage.removeItem("token");
-  }
+  const Bar = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: ${theme.unit(2)};
+    background: ${theme.colors.main};
+    color: ${theme.colors.black};
+  `
+  const Logo = styled.h1`
+    /* font-size: ${theme.unit(1)}; */
+  `
+
+  const Options = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  `
 
   return (
-    <div className="Navigation">
-      <Link to="/add-route">
-        <Button>+ Add Route</Button>
-      </Link>
-      <p className="logo">ChalkUp</p>
-      <Button onClick={() => logout} className="logout">
-        Logout
-      </Button>
-    </div>
+    <Bar className="Navigation">
+      <Logo className="logo">ChalkUp</Logo>
+      <Options>
+        <Link to="/add-route" style={{margin: theme.unit(1)}}>
+          <Button>+ Add Route</Button>
+        </Link>
+        <a className="logout" style={{margin: theme.unit(1)}}>Logout</a>
+      </Options>
+    </Bar>
   );
 };
 
