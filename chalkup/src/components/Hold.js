@@ -1,19 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useDrag, DragSource, DragPreviewImage } from 'react-dnd'
 
-import Foot from '../images/foot1.png'
+import Foot from '../images/holds/foot1.png'
 
 const Hold = (props) => {
+    const [src, setSrc] = useState('')
+    const changeSrc = e => {
+        setSrc(e.target.src)
+    }
     const [{ isDragging }, drag, preview] = useDrag({
-        item: { type: 'hold', orig: props.id?false:true, id: props.id },
+        item: { type: 'hold', orig: props.id?false:true, id: props.id, src },
         collect: monitor => ({
             isDragging: !!monitor.isDragging(),
         }),
     })
+    console.log(src)
     return (
         <div>
-            <img src={Foot}
+            <img src={props.src}
             ref={drag}
+            onMouseEnter={changeSrc}
             style={{
                 opacity: isDragging ? 0.5 : 1,
                 cursor: 'move',
@@ -22,7 +28,7 @@ const Hold = (props) => {
                 left: props.x,
                 userSelect: 'none'
             }} alt="hold"/>
-            <DragPreviewImage connect={preview} src={Foot} />
+            <DragPreviewImage connect={preview} src={props.src} />
         </div>
     );
 }
