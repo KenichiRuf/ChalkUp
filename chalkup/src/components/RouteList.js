@@ -5,7 +5,7 @@ const RouteList = props => {
   return (
     <div className="routeList">
       {props.routeList.map(route => (
-        <RouteCard route={route} />
+        <RouteCard route={route} key={route.id} />
       ))}
     </div>
   );
