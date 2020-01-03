@@ -5,7 +5,9 @@ import HomePage from "./components/HomePage";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import FindRoutes from "./components/FindRoutes";
 import RouteSetter from "./components/RouteSetter";
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/find-routes" component={FindRoutes} />
       <Route exact path="/add-route" component={RouteSetter} />
     </Router>
   );

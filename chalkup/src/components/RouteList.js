@@ -3,7 +3,7 @@ import RouteCard from "./RouteCard";
 
 const RouteList = props => {
   return (
-    <div>
+    <div className="routeList">
       {props.routeList.map(route => (
         <RouteCard route={route} />
       ))}
